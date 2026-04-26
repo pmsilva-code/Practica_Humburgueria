@@ -10,20 +10,23 @@ def remove_hamburger(index: int) -> dict | None:
 
 
 def delete_hamburguer():
-    """Requets at user which hamburger shoud be exclude the list."""
+    """Requests to user which hamburger should be excluded from the list."""
     try:
         list_hamburgers()
         if not data_hamburguers:
             print("Não há hambúrgueres para excluir.")
             return
         index = int(input("Digite o número do hamburger que deseja excluir: "))
+        if index < 1 or index > len(data_hamburguers):
+            print("Número inválido. Por favor, escolha um número válido da lista.")
+            return
     except ValueError:
         print("Entrada inválida. Digite um número inteiro.")
         return
 
     deleted = remove_hamburger(index - 1)
     if deleted is None:
-        print("Número inválido. Porfavor, escolha um numero válido da lista.")
+        print("Erro inesperado ao excluir.")
         return
-    print(f"Hambúrguer excluído: {deleted["name"]} - Preço: R${deleted["price"]:.2f}")
+    print(f"Hambúrguer excluído: {deleted['name']} - Preço: R${deleted['price']:.2f}")
     list_hamburgers()

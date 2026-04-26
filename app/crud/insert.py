@@ -24,5 +24,5 @@ def list_hamburgers():
         print("Nenhum hambúrguer cadastrado.")
         return
     print(f"lista de hamburguers cadastrados: ")
-    for i, hamburguers in enumerate(data_hamburguers, start=1):
-        print(f'{i} - {hamburguers["name"]} - Price: R${hamburguers["price"]:.2f}')
+    for i, hamburger in enumerate(data_hamburguers, start=1):
+        print(f'{i} - {hamburger["name"]} - Price: R${hamburger["price"]:.2f}')

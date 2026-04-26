@@ -1,24 +1,35 @@
 from data.data import data_hamburguers
 
 
-def update_list_hamburguers():
+def update_hamburger(index: int, new_name: str, new_price: float) -> dict | None:
+    """Update the index and return the updated item."""
+    if index < 0 or index >= len(data_hamburguers):
+        return None
+    data_hamburguers[index] = {"name": new_name, "price": new_price}
+    return data_hamburguers[index]
 
-    update_hamburger = (
-        int(input("Digite o número do hamburguer que deseja atualizar: ")) - 1
-    )
 
-    if update_hamburger < 0 or update_hamburger >= len(data_hamburguers):
-        print("Número inválido. Por favor, escolha um número válido da lista.")
+def update_hamburger_interactive():
+    """ "Requests the user which hamburger to update and applies the changes."""
+
+    try:
+        index = int(input("Digite o número do hambúrguer que deseja atualizar: ")) - 1
+    except ValueError:
+        print("Entrada inválida. Digite um número inteiro.")
         return
 
-    new_name_hamburger = str(input("Digite o nome do novo hamburger: "))
-    new_price_hamburger = int(input("Digite o novo preço:"))
+    if index < 0 or index >= len(data_hamburguers):
+        print(f"Número inválido. Escolha um número entre 1 e {len(data_hamburguers)}.")
+        return
 
-    data_hamburguers[update_hamburger] = {
-        f"name": new_name_hamburger,
-        "price": new_price_hamburger,
-    }
-    print("Hambúrguer atualizado com sucesso!")
-    print(
-        f'Hambúrguer atualizado: {data_hamburguers[update_hamburger]["name"]} - Price: R${data_hamburguers[update_hamburger]["price"]:.2f}'
-    )
+    new_name = input("Digite o nome do novo hambúrguer: ")
+    try:
+        new_price = float(input("Digite o novo preço: "))
+    except ValueError:
+        print("Preço inválido. Digite um número válido.")
+        return
+
+    updated = update_hamburger(index, new_name, new_price)
+    if updated:
+        print("Hambúrguer atualizado com sucesso!")
+        print(f'Hambúrguer atualizado: {updated["name"]} - Preço: R${updated["price"]:.2f}')

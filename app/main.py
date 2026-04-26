@@ -17,10 +17,9 @@ def application():
         elif option == 2:
             utils.clear_terminal.clear_terminal()
             crud.insert.list_hamburgers()
-
         elif option == 3:
             utils.clear_terminal.clear_terminal()
-            crud.update.update_list_hamburguers()
+            crud.update.update_hamburger_interactive()
         elif option == 4:
             utils.clear_terminal.clear_terminal()
             crud.delete.delete_hamburguer()
