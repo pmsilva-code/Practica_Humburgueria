@@ -16,7 +16,7 @@ def application():
             crud.insert.adding_hamburguers()
         elif option == 2:
             utils.clear_terminal.clear_terminal()
-            crud.insert.list_humburguers()
+            crud.insert.list_hamburgers()
 
         elif option == 3:
             utils.clear_terminal.clear_terminal()

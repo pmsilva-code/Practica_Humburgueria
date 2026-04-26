@@ -1,5 +1,5 @@
 from data.data import data_hamburguers
-from crud.insert import list_humburguers
+from crud.insert import list_hamburgers
 
 
 def delete_hamburguers():
@@ -16,4 +16,4 @@ def delete_hamburguers():
         f"Hambúrguer excluído: {deleted_hamburger['name']} - Price: R${deleted_hamburger['price']:.2f}"
     )
 
-    list_humburguers()
+    list_hamburgers()
