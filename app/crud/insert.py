@@ -25,4 +25,4 @@ def list_hamburgers():
         return
     print(f"lista de hamburguers cadastrados: ")
     for i, hamburguers in enumerate(data_hamburguers, start=1):
-        print(f'{i + 1} - {hamburguers["name"]} - Price: R${hamburguers["price"]:.2f}')
+        print(f'{i} - {hamburguers["name"]} - Price: R${hamburguers["price"]:.2f}')

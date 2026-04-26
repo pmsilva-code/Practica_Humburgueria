@@ -23,7 +23,7 @@ def application():
             crud.update.update_list_hamburguers()
         elif option == 4:
             utils.clear_terminal.clear_terminal()
-            crud.delete.delete_hamburguers()
+            crud.delete.delete_hamburguer()
         elif option == 5:
             utils.clear_terminal.clear_terminal()
             print("Saindo do programa...")
