@@ -10,12 +10,21 @@ def add_hamburger(name_hamburger: str, price_hamburger: float) -> dict:
 
 def adding_hamburguers():
     """Function request data of user and add a hamburger list"""
-    name_hamburger = input("Digite o nome do hamburguer que deseja adicionar:")
-    try:
-        price_hamburger = float(input("Digite o valor do hamburguer: "))
-        return add_hamburger(name_hamburger, price_hamburger)
-    except ValueError:
-        print("Valor inválido. Por favor, insira um número para o preço do hambúrguer.")
+    while True:
+        name_hamburger = input("Digite o nome do hamburguer que deseja adicionar: ")
+        if name_hamburger.isdigit():
+            print("Nome inválido. O nome deve ser uma string, não um número. Tente novamente.")
+            continue
+        else:
+            break
+    while True:
+        try:
+            price_hamburger = float(input("Digite o valor do hamburguer: "))
+            return add_hamburger(name_hamburger, price_hamburger)
+        except ValueError:
+            print(
+                "Valor inválido. Por favor, insira um número para o preço do hambúrguer."
+            )
 
 
 def list_hamburgers():
